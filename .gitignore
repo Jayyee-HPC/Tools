@@ -1,0 +1,5 @@
+# exclude exectable
+
+/prog
+/*/prog
+/*/*/prog
