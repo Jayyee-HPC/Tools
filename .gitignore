@@ -1,5 +1,6 @@
-# exclude exectable
+# exclude executable
+prog
+out
+*.out
 
-/prog
-/*/prog
-/*/*/prog
+

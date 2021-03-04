@@ -60,8 +60,8 @@ void readGeoms(std::string file_path, std::list<geos::geom::Geometry*>* lgeoms)
 int main(int argc, char **argv){
 	auto t_begin = std::chrono::high_resolution_clock::now();
 
-    const std::string file0 = argv[1];
-    const std::string file1 = argv[2];
+	const std::string file0 = argv[1];
+	const std::string file1 = argv[2];
 
 	std::list<geos::geom::Geometry*> *lgeoms1 = new std::list<geos::geom::Geometry*>;
 	std::list<geos::geom::Geometry*> *lgeoms2 = new std::list<geos::geom::Geometry*>;
