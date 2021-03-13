@@ -1,8 +1,6 @@
 GCC = g++
 CC = /opt/openmpi/bin/mpicxx -g
-
 LIBB = -lgeos -I/opt/geos/include
-
 CFLAGS = -O0 -Wall -Wfatal-errors -c -std=c++0x -I/usr/local/include
 LIBRA = lib/libshp.a lib/librtree.a
 DEBUG = -g
