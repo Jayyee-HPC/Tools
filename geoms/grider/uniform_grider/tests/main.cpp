@@ -64,20 +64,20 @@ int main(int argc, char **argv)
 	}
 	
 	std::string cwd_path_str(cwd_path);
-	std::string file_path_1 = cwd_path_str + "/uniGridDataA" + std::to_string(num_partitions);	
+	std::string file_path_1 = cwd_path_str + "/uni_grid_data_a_" + std::to_string(num_partitions);	
 
 	if (-1 == access(file_path_1.c_str(), F_OK))
 	{
 			mkdir(file_path_1.c_str(),S_IRWXU);
 	}
 	
-	std::string file_path_2 = cwd_path_str + "/uniGridDataB" + std::to_string(num_partitions);	
+	std::string file_path_2 = cwd_path_str + "/uni_grid_data_b_" + std::to_string(num_partitions);	
 
 	if (-1 == access(file_path_2.c_str(), F_OK)){
 			mkdir(file_path_2.c_str(),S_IRWXU);
 	}
 	
-	std::string grid_path = cwd_path_str+"/gridWKTFile"+ std::to_string(num_partitions);
+	std::string grid_path = cwd_path_str+"/uni_grid_wkt_file_"+ std::to_string(num_partitions);
 	Util_Write_grid_to_WKT(grid_path, grid_cells);
 	int name_counter = 0;
 		
