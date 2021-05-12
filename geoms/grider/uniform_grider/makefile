@@ -1,4 +1,4 @@
-GCC = g++ -std=c++17 -lnuma
+GCC = g++ -std=c++17
 MPICC = mpicxx -std=c++17 -g  
 CXXFLAGS := -O0 -Wall -Wfatal-errors -pthread
 MPICCFLAGS = -O0 -Wall -Wfatal-errors -pthread 
