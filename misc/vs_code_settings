@@ -1,0 +1,2 @@
+C_Cpp.default.includePath": ["~/.local/include", "${workspaceFolder}/include", "${default}"]
+
