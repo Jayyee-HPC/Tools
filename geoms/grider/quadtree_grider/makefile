@@ -10,7 +10,7 @@ OBJ_DIR  := $(MAKE_DIR)/bin
 APP_DIR  := $(MAKE_DIR)
 TEST_DIR := $(MAKE_DIR)/tests
 TARGET   := qgrider
-INCLUDE  := -I/usr/local/include -I${HOME}/.local/include -Iinclude
+INCLUDE  := -I/usr/local/include -I${HOME}/.local/include -Iinclude -I/usr/inclue 
 SRC      :=                      \
    $(wildcard src/*.cpp)         \
    $(wildcard tests/*.cpp)       \
@@ -25,7 +25,7 @@ $(OBJ_DIR)/%.o: %.cpp
 
 $(APP_DIR)/$(TARGET): $(OBJECTS)
 	@mkdir -p $(@D)
-	$(GCC) $(CXXFLAGS) $(INCLUDE) $(LDFLAGS) -o $(APP_DIR)/$(TARGET) $(OBJECTS)
+	$(GCC) $(CXXFLAGS) $(INCLUDE)  -o $(APP_DIR)/$(TARGET) $(OBJECTS) $(LDFLAGS)
 
 .PHONY: all build clean debug release
 
