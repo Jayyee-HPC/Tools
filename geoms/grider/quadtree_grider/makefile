@@ -1,4 +1,4 @@
-GCC = g++ -std=c++17
+GCC = g++ -std=c++17 
 MPICC = mpicxx -std=c++17 -g  
 CXXFLAGS := -O0 -Wall -Wfatal-errors -pthread
 MPICCFLAGS = -O0 -Wall -Wfatal-errors -pthread 
@@ -10,7 +10,7 @@ OBJ_DIR  := $(MAKE_DIR)/bin
 APP_DIR  := $(MAKE_DIR)
 TEST_DIR := $(MAKE_DIR)/tests
 TARGET   := qgrider
-INCLUDE  := -I/usr/local/include -I${HOME}/.local/include -Iinclude -I/usr/inclue 
+INCLUDE  := -isystem ${HOME}/.local/include -Iinclude -I/usr/inclue -I/usr/local/include 
 SRC      :=                      \
    $(wildcard src/*.cpp)         \
    $(wildcard tests/*.cpp)       \
