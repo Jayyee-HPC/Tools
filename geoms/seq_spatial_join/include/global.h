@@ -37,13 +37,10 @@
 #include <geos/geom/LinearRing.h>
 #include <spdlog/spdlog.h>
 #include <spdlog/cfg/env.h> // support for loading levels from the environment variable
-#include <wsq.hpp>
 
 /* Internal headers */
 #include <reader.h>
 #include <spatial_join.h>
-#include <thread_util.h>
-#include <wsq_manager.h>
 
 /*Global Functions*/
 
