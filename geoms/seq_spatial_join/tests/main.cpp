@@ -158,8 +158,8 @@ int Spatial_Join_seq_no_partition(int argc, char **argv)
 
     auto t_begin = std::chrono::steady_clock::now();
 
-    const std::string file_path_1 = argv[2];
-    const std::string file_path_2 = argv[3];
+    const std::string file_path_1 = argv[1];
+    const std::string file_path_2 = argv[2];
 
     spdlog::info("File path 1 {}, file path 2 {}", file_path_1, file_path_2);
 

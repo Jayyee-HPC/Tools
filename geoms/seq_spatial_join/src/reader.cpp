@@ -121,7 +121,7 @@ static void  Thread_Read_geoms_from_strs(std::vector<std::string> *v_strs, std::
             //throw;
         }
 
-        if(temp_geom != NULL){// && temp_geom->isValid()){//Disable validation check increase performance
+        if(temp_geom != NULL && temp_geom->isValid()){//Disable validation check increase performance
             if(temp_geom->getGeometryTypeId() == geos::geom::GeometryTypeId::GEOS_MULTIPOLYGON
                     || temp_geom->getGeometryTypeId() == geos::geom::GeometryTypeId::GEOS_MULTILINESTRING
                     || temp_geom->getGeometryTypeId() == geos::geom::GeometryTypeId::GEOS_GEOMETRYCOLLECTION)
