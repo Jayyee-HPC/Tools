@@ -6,7 +6,9 @@ int Spatial_Join_seq_no_partition(int argc, char **argv);
 
 int main(int argc, char **argv)
 {
-    Spatial_Join_seq(argc, argv);
+    //Spatial_Join_seq(argc, argv);
+    Spatial_Join_seq_no_partition(argc, argv);
+
     return 0;
 }
 
