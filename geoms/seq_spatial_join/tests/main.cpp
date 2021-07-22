@@ -247,13 +247,14 @@ int Spatial_Join_seq_no_partition(int argc, char **argv)
             }
         }
     }
+
     auto t_join_end = std::chrono::steady_clock::now();
 
     std::chrono::duration<double> t_diff_temp_1 = t_parse_end - t_begin;
     std::chrono::duration<double> t_diff_temp_2 = t_join_end - t_parse_end;
 
-    time_parse == t_diff_temp_1.count();
-    time_join == t_diff_temp_2.count();
+    time_parse = t_diff_temp_1.count();
+    time_join = t_diff_temp_2.count();
 
     auto t_end = std::chrono::steady_clock::now();
 
