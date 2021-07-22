@@ -1,63 +1,12 @@
 #define USE_UNSTABLE_GEOS_CPP_API
 #include <global.h>
 
-int Spatial_Join_ws(int argc, char **argv);
 int Spatial_Join_seq(int argc, char **argv);
 int Spatial_Join_seq_no_partition(int argc, char **argv);
 
 int main(int argc, char **argv)
 {
-    //Spatial_Join_ws(argc, argv);
     Spatial_Join_seq(argc, argv);
-    return 0;
-}
-
-int Spatial_Join_ws(int argc, char **argv)
-{
-    spdlog::set_pattern("[%H:%M:%S.%e] %v");
-
-#ifdef DEBUG
-    spdlog::set_level(spdlog::level::debug); // Set global log level to debug
-#else
-    spdlog::set_level(spdlog::level::info); // Set global log level to info
-#endif
-
-    spdlog::debug("Enter function {}", "Spatial_Join_using_numa");
-
-    auto t_begin = std::chrono::steady_clock::now();
-
-    const int num_files = atoi(argv[1]);
-
-    const std::string file_path_1 = argv[2];
-    const std::string file_path_2 = argv[3];
-
-    spdlog::info("File path 1 {}, file path 2 {}, num_files {}", file_path_1, file_path_2, num_files);
-
-#ifdef USE_ST_INTERSECTION
-    spdlog::info("USE_ST_INTERSECTION");
-#elif USE_ST_INTERSECTS
-    spdlog::info("USE_ST_INTERSECTS");
-#elif USE_ST_UNION
-    spdlog::info("USE_ST_UNION");
-#else //default using USE_ST_INTERSECTION
-    spdlog::info("USE_ST_INTERSECTION");
-#endif
-
-    uint num_threads = 36;
-
-    ulong join_result = 0;
-
-    join_result = gsj::thread_func::Thread_Wrapper_spatial_join_multi_owners_multi_files_parsing(num_threads, file_path_1, file_path_2, num_files);
-
-    auto t_join_finished = std::chrono::steady_clock::now();
-
-    std::chrono::duration<double> t_diff_1 = t_join_finished - t_begin;
-
-    spdlog::info("Program finished in {0:03.3f}, join result {1:d}",
-                 t_diff_1.count(), join_result);
-
-    spdlog::debug("Leave function {}", "Spatial_Join_using_numa");
-
     return 0;
 }
 
