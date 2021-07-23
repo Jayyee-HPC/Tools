@@ -186,6 +186,7 @@ int Spatial_Join_seq_no_partition(int argc, char **argv)
     reader.Read_Geoms_from_file_parallel(file_path_1, list_geoms_1);
     reader.Read_Geoms_from_file_parallel(file_path_2, list_geoms_2);
 
+    spdlog::info("List 1 {} : List 2 {}", list_geoms_1->size(), list_geoms_2->size());
     auto t_parse_end = std::chrono::steady_clock::now();
 
     geos::index::strtree::STRtree index_for_layer_1;
@@ -205,12 +206,13 @@ int Spatial_Join_seq_no_partition(int argc, char **argv)
 
         index_for_layer_1.query(temp_env, results);
 
-        if (results.size() != 0)
-        {
 #ifdef USE_ST_INTERSECTS
             std::unique_ptr<geos::geom::prep::PreparedGeometry> pg =
                 geos::geom::prep::PreparedGeometryFactory::prepare(temp_geom);
 #endif //ifdef USE_ST_INTERSECTS
+
+        if (results.size() != 0)
+        {
             for (std::vector<void *>::iterator void_itr = results.begin(); void_itr != results.end(); void_itr++)
             {
                 void *temp_geom_ptr = *void_itr;
