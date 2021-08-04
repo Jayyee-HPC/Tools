@@ -45,34 +45,10 @@ int main(int argc, char **argv)
         Write_MBR_with_Weight_to_folder(file_path, num_files);
     }
 
-    std::list<geos::geom::Geometry *> *list_geoms = new std::list<geos::geom::Geometry *>;
-
-    Read_WKT_file(file_path, list_geoms);
-
-    auto t_parse_end = std::chrono::steady_clock::now();
-
-    if (list_geoms->empty())
-    {
-        std::cerr << "Get no geometries from " + file_path << std::endl;
-        exit(0);
-    }
-
-    std::string output_file;
-
-    output_file = file_path + "_wkt";
-
-    //Write_WKT_to_file(output_file, list_geoms);
-
     auto t_end = std::chrono::steady_clock::now();
+    std::chrono::duration<double> t_diff = t_end - t_start;
 
-    std::chrono::duration<double> t_diff_0 = t_parse_end - t_start;
-    std::chrono::duration<double> t_diff_1 = t_end - t_parse_end;
-
-    std::cout << "WKT to WKB converting finished:: ";
-    std::cout << ". # geometries:: " << list_geoms->size() << std::endl;
-    std::cout << "Time for reading files::" << t_diff_0.count() << std::endl;
-    std::cout << "Time for writing files::" << t_diff_1.count() << std::endl;
-    std::cout << "Path for the wkt file" << output_file << std::endl;
+    std::cout << "WKT to MBR converting finished:: " << t_diff.count() << std::endl;
 
     return 0;
 }
