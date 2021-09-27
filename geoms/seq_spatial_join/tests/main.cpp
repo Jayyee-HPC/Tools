@@ -48,7 +48,7 @@ int Spatial_Join_seq(int argc, char **argv)
     double time_parse = 0.0;
     double time_join = 0.0;
 
-    for (int i = 0; i < num_files; ++i)
+    for (int i = num_files; i >= 0; --i)
     {
         auto t_parse_begin = std::chrono::steady_clock::now();
 
@@ -130,7 +130,7 @@ int Spatial_Join_seq(int argc, char **argv)
         std::chrono::duration<double> t_diff_temp_1 = t_parse_end - t_parse_begin;
         std::chrono::duration<double> t_diff_temp_2 = t_join_end - t_parse_end;
 
-        printf("%d, %lf\n", i, t_diff_temp_2.count());
+        printf("%d, %f\n", i, t_diff_temp_2.count());
         time_parse += t_diff_temp_1.count();
         time_join += t_diff_temp_2.count();
     }
