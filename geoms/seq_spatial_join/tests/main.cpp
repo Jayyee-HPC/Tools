@@ -6,8 +6,8 @@ int Spatial_Join_seq_no_partition(int argc, char **argv);
 
 int main(int argc, char **argv)
 {
-    //Spatial_Join_seq(argc, argv);
-    Spatial_Join_seq_no_partition(argc, argv);
+    Spatial_Join_seq(argc, argv);
+    //Spatial_Join_seq_no_partition(argc, argv);
 
     return 0;
 }
@@ -130,6 +130,7 @@ int Spatial_Join_seq(int argc, char **argv)
         std::chrono::duration<double> t_diff_temp_1 = t_parse_end - t_parse_begin;
         std::chrono::duration<double> t_diff_temp_2 = t_join_end - t_parse_end;
 
+        std::cout<<i<<","<<t_diff_temp_2.count()<<std::endl;
         time_parse += t_diff_temp_1.count();
         time_join += t_diff_temp_2.count();
     }

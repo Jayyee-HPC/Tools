@@ -6,8 +6,8 @@
 #define DEBUG
 #define NUMA_ENABLED
 //#define USE_ST_INTERSECTION 1
-//#define USE_ST_INTERSECTS 1
-#define USE_ST_UNION 1
+#define USE_ST_INTERSECTS 1
+//#define USE_ST_UNION 1
 
 /* Global Variables */
 #define WORKER_PREPARING 0
