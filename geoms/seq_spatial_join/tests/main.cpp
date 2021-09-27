@@ -130,7 +130,7 @@ int Spatial_Join_seq(int argc, char **argv)
         std::chrono::duration<double> t_diff_temp_1 = t_parse_end - t_parse_begin;
         std::chrono::duration<double> t_diff_temp_2 = t_join_end - t_parse_end;
 
-        std::cout<<i<<","<<t_diff_temp_2.count()<<std::endl;
+        printf("%d, %lf\n", i, t_diff_temp_2.count());
         time_parse += t_diff_temp_1.count();
         time_join += t_diff_temp_2.count();
     }
