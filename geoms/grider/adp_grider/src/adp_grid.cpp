@@ -141,6 +141,11 @@ ulong Adp_Grid :: get_complexity_for_cell(std::list<std::pair<geos::geom::Coordi
 
 	index.query(env, results);
 
+	if (results.empty())
+		return 0UL;
+	if (results.size() < 100)
+		return 1UL;
+		
 	for(std::vector<void *>::iterator itr = results.begin(); itr != results.end(); ++itr){
 		void* temp_void = *itr;
 
@@ -234,6 +239,11 @@ ulong Adp_Grid :: get_complexity_for_cell(std::list<std::pair<const geos::geom::
 	std::vector<void *> results;
 
 	index.query(env, results);
+
+	if (results.empty())
+		return 0UL;
+	if (results.size() < 100)
+		return 1UL;
 
 	for(std::vector<void *>::iterator itr = results.begin(); itr != results.end(); ++itr){
 		void* temp_void = *itr;
