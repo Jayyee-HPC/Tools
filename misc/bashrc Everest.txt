@@ -1,0 +1,23 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific aliases and functions
+export PATH=/home/jyang004/.local/bin:/home/jyang004/.local/mpich/bin:/home/jyang004/jdk-12.0.2/bin:/usr/bin$PATH
+export LD_LIBRARY_PATH=/home/jyang004/.local/lib/:/home/jyang004/.local/mpich/lib/:/home/jyang004/.local/lib64/$LD_LIBRARY_PATH
+
+# Aliases
+alias topj="top -u jyang004"
+alias topGPU="watch -n0.1 nvidia-smi"
+alias makef="make clean && make -j 36"
+
+# Bash functions
+function filenum {
+	ls $1 | wc -l
+}
+
+# SSH agent
+eval "$(ssh-agent -s)"
